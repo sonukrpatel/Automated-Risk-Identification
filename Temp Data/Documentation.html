@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automated Risk Identification Project</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+<style>
+	body {
+    font-family: 'Arial', sans-serif;
+    margin: 20px;
+    color: #333;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h1 {
+    color: #0066cc;
+}
+
+h2 {
+    color: #009933;
+}
+
+h3 {
+    color: #990000;
+}
+
+p {
+    line-height: 1.6;
+    color: #666;
+}
+
+pre {
+    background-color: #f4f4f4;
+    padding: 10px;
+    border-radius: 5px;
+    overflow-x: auto;
+    font-family: "Courier New", Courier, monospace;
+}
+
+code {
+    background-color: #f4f4f4;
+    padding: 2px 5px;
+    border-radius: 3px;
+    font-family: "Courier New", Courier, monospace;
+}
+
+section {
+    margin-bottom: 30px;
+}
+
+ul {
+    list-style-type: disc;
+    margin-left: 20px;
+}
+
+ol {
+    list-style-type: decimal;
+    margin-left: 20px;
+}
+
+.deliverables ol,
+.implementation-notes ul,
+.implementation-notes ol {
+    margin-left: 40px;
+}
+
+.contact-information {
+    margin-bottom: 50px;
+}
+
+.references ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.references a {
+    color: #0066cc;
+    text-decoration: none;
+}
+
+.references a:hover {
+    text-decoration: underline;
+}
+
+</style>
+
+    <header>
+        <h1>Automated Risk Identification Project</h1>
+        <p>Using AI for Risk Management based on NIST CSF</p>
+    </header>
+
+    <section class="abstract">
+        <h2>Abstract</h2>
+        <p>Organisations face challenges in deriving risks in a standard way from different processes, such as threat modelling and incident management. Some mature organisations use commercial tools to streamline the risk management process, but these tools are often complex and ineffective This project proposes a new approach to risk management that uses artificial intelligence (AI) to automate the process of risk identification and prioritisation.</p>
+    </section>
+	<section class="approach_target_standard">
+		<h2>Approach Target standard</h2>
+		<p>for risk management is NIST CSF. The risks must be categorised to IS and DP risks</p>
+
+		<p>based on the threat or incident context.</p>
+
+		<p>To simplify the NLP part we could compose the text of the threat or incident definition to a standard form to derive the key parameters from the input text. Then the ML must be trained with different input collections of these parameters to identify the equivalent mapping in NIST standard
+		</p>
+
+    <section class="data-processing">
+        <h2>Data Collection and Preprocessing</h2>
+        <p>The project begins by collecting data from <a href="https://capec.mitre.org/data/index.html" target="_blank">CAPEC Website</a>,
+		consolidating it into a cohesive dataset through a Python program. To ensure data quality, 
+		missing values and outliers are addressed. Additionally, non-numeric data is transformed into
+		a numeric format for compatibility with machine learning algorithms.</p>
+		<p></p>
+		
+    </section>
+
+    <section class="machine-learning">
+        <h2>Machine Learning Models</h2>
+        <div class="overview">
+            <h3>Overview</h3>
+            <p>The heart of the project lies in its machine learning models, each designed to predict specific aspects of risk.</p>
+        </div>
+        <div class="model-list">
+            <ul>
+                <li><strong>Likelihood of Attack</strong></li>
+                <li><strong>Name</strong></li>
+                <li><strong>Prerequisites</strong></li>
+                <li><strong>Skills Required</strong></li>
+                <li><strong>Consequences</strong></li>
+                <li><strong>Mitigations</strong></li>
+            </ul>
+        </div>
+        <div class="training">
+            <h3>Model Training</h3>
+            <p>The models are trained on historical incident reports using a RandomForestClassifier. The training involves feeding the models with various input collections of parameters derived from incident descriptions. This process allows the models to learn and identify equivalent mappings in alignment with the NIST Cybersecurity Framework.</p>
+            <pre><code># Sample code for model training</code></pre>
+        </div>
+    </section>
+
+    <section class="flask-application">
+        <h2>Flask Application</h2>
+        <p>The project employs Flask for the frontend, providing a user-friendly interface. Users can input incident descriptions, and the system predicts various risk parameters based on the trained machine learning models.</p>
+        <div class="flask-code">
+            <pre><code># Sample Flask code for taking user input and predicting risk parameters</code></pre>
+        </div>
+    </section>
+
+    <section class="deliverables">
+        <h2>Screenshot</h2>
+        <ol>
+            <li>Demo Video: A demonstration showcasing the system's ability to identify and prioritize Information Security (IS) or Data Privacy (DP) risks according to the NIST Cybersecurity Framework.</li>
+            <li>Code:
+                <ul>
+                    <li>Backend: Python scripts for data preprocessing and model training.</li>
+                    <li>Frontend: Flask application for user interaction.</li>
+                </ul>
+            </li>
+            <li>Paper: An in-depth document explaining the algorithm, methodology, and work statement of the project.</li>
+        </ol>
+    </section>
+
+    <section class="implementation-notes">
+        <h2>Implementation Notes</h2>
+        <div class="data-collection">
+            <h3>Data Collection and Preprocessing</h3>
+            <ul>
+                <li>Historical incident reports are gathered in a specified format.</li>
+                <li>Data preprocessing ensures consistency in the report structure, addressing missing values and outliers.</li>
+            </ul>
+        </div>
+        <div class="machine-learning">
+            <h3>Machine Learning Models</h3>
+            <ul>
+                <li>The models are developed to categorize incidents based on key parameters derived from incident descriptions.</li>
+                <li>Training involves the use of pre-trained or developed models for extracting critical elements such as threat source, prerequisites, threat action, threat impact, etc.</li>
+            </ul>
+        </div>
+        <div class="nist-framework">
+            <h3>NIST Framework Mapping</h3>
+            <p>The project establishes a mapping between incident categories and the NIST Cybersecurity Framework, associating each incident with relevant NIST elements.</p>
+        </div>
+        <div class="risk-assessment">
+            <h3>Risk Assessment Criteria</h3>
+            <ul>
+                <li>Clear criteria are defined for assessing the risk level within each NIST category and subcategory.</li>
+                <li>Factors considered include threat impact, likelihood, and potential harm to assets.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="conclusion">
+        <h2>Conclusion</h2>
+        <p>In conclusion, the Automated Risk Identification project integrates machine learning and AI to streamline risk management processes. The Flask-based frontend enhances user experience by providing an intuitive platform for predicting risk parameters based on incident descriptions.</p>
+    </section>
+
+    <section class="acknowledgments">
+        <h2>Acknowledgments</h2>
+        <p>We extend our gratitude to [Your Organization or Team] for their invaluable support and resources throughout the project.</p>
+    </section>
+
+    <section class="references">
+        <h2>References</h2>
+        <ul>
+            <li><a href="https://awslabs.github.io/threat-composer/workspaces/example/threats/new">Threat Composer Reference</a></li>
+        </ul>
+    </section>
+
+    <section class="contact-information">
+        <h2>Contact Information</h2>
+        <p>For inquiries, please reach out to [Your Name] at [Your Email].</p>
+    </section>
+
+</body>
+
+</html>
